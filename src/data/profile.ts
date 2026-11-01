@@ -29,11 +29,11 @@ export const profile: Profile = {
     'A multidisciplinary creative in Pune, India. I design brands, build worlds in 3D, animate, edit and film, and shape digital interfaces, all in service of one good idea.',
   // Placeholder story. Replace with your own background in your own words.
   about: [
-    'I’m REGOR, a multidisciplinary creative based in Pune, India. I move between graphic design, 3D, animation, film and interface design because good ideas rarely stay in one medium.',
+    'I’m Abdul , a multidisciplinary creative based in Pune, India. I move between graphic design, 3D, animation, film and interface design because good ideas rarely stay in one medium.',
     'A brand can become a motion piece. A render can become a scene. A story can become a screen. This site is my notebook for that process: finished work up front, experiments in the back.',
   ],
   // Confirmed tools. Add the rest of your toolkit here.
-  software: ['Blender', 'After Effects'],
+  software: ['Blender', 'After Effects','premiere pro'],
   links: {
     email: 'abdulkadardesigns@gmail.com',
     instagram: 'https://www.instagram.com/regor_ly/',
