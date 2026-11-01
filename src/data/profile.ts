@@ -35,9 +35,9 @@ export const profile: Profile = {
   // Confirmed tools. Add the rest of your toolkit here.
   software: ['Blender', 'After Effects'],
   links: {
-    email: '',
-    instagram: '',
-    linkedin: '',
-    behance: '',
+    email: 'abdulkadardesigns@gmail.com',
+    instagram: 'https://www.instagram.com/regor_ly/',
+    linkedin: 'https://www.linkedin.com/feed/foryou/',
+    behance: 'https://www.behance.net/regorrage',
   },
 }
