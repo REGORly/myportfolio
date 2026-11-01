@@ -22,7 +22,7 @@ export interface Profile {
 }
 
 export const profile: Profile = {
-  name: 'REGOR',
+  name: 'greed',
   location: 'Pune, India',
   tagline: 'I turn ideas into visual experiences',
   intro:
