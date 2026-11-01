@@ -33,7 +33,7 @@ export const profile: Profile = {
     'A brand can become a motion piece. A render can become a scene. A story can become a screen. This site is my notebook for that process: finished work up front, experiments in the back.',
   ],
   // Confirmed tools. Add the rest of your toolkit here.
-  software: ['Blender', 'After Effects','premiere pro'],
+  software: ['Blender', 'After Effects','premiere pro','adobe illustrator'],
   links: {
     email: 'abdulkadardesigns@gmail.com',
     instagram: 'https://www.instagram.com/regor_ly/',
