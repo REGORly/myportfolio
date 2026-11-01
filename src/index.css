@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --imperial: #2a123f;
+  --amethyst: #4b1f6f;
+  --lavender: #9c8cb9;
+  --orchid: #c686dd;
+  --pearl: #f1edf7;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--imperial);
+  color: var(--pearl);
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* One fixed film-grain layer for the whole page: cheap, and it ties dark + paper sections together. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--orchid);
+  color: var(--imperial);
+}
+
+:focus-visible {
+  outline: 2px solid var(--orchid);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@layer components {
+  /* Ruled notebook paper */
+  .paper-bg {
+    background-color: var(--pearl);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 35px,
+      rgba(156, 140, 185, 0.32) 35px,
+      rgba(156, 140, 185, 0.32) 36px
+    );
+  }
+
+  /* Notebook page with a red-pen margin line (in Orchid Smoke) */
+  .notebook-page {
+    background-color: #fbf9fd;
+    background-image:
+      linear-gradient(
+        to right,
+        transparent 3.4rem,
+        rgba(198, 134, 221, 0.7) 3.4rem,
+        rgba(198, 134, 221, 0.7) calc(3.4rem + 2px),
+        transparent calc(3.4rem + 2px)
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 31px,
+        rgba(156, 140, 185, 0.35) 31px,
+        rgba(156, 140, 185, 0.35) 32px
+      );
+    background-position: 0 0, 0 12px;
+  }
+
+  /* Spiral binding holes */
+  .spiral {
+    background: radial-gradient(circle at 50% 50%, var(--imperial) 0 5px, rgba(42, 18, 63, 0.25) 6px, transparent 7px) 0 0 / 100% 30px repeat-y;
+  }
+
+  /* Dotted grid on dark (bullet-journal feel) */
+  .dot-grid {
+    background-image: radial-gradient(rgba(241, 237, 247, 0.16) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Graph paper on lavender */
+  .graph-bg {
+    background-color: var(--lavender);
+    background-image:
+      linear-gradient(rgba(241, 237, 247, 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(241, 237, 247, 0.22) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 0.035em var(--orchid);
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(160deg, var(--pearl) 0%, var(--lavender) 45%, var(--orchid) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tape {
+    clip-path: polygon(
+      0 0, 4% 12%, 0 25%, 4% 37%, 0 50%, 4% 62%, 0 75%, 4% 87%, 0 100%,
+      100% 100%, 96% 87%, 100% 75%, 96% 62%, 100% 50%, 96% 37%, 100% 25%, 96% 12%, 100% 0
+    );
+  }
+
+  .condensed {
+    font-stretch: 75%;
+  }
+
+  .marquee-track {
+    animation: marquee 42s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Custom cursor only where there is a fine pointer (class is set from Cursor.tsx) */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
